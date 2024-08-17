@@ -1,0 +1,26 @@
+@import "config/variables";
+@import "config/layout";
+@import "config/colors";
+
+@import "utilities/spacing";
+@import "utilities/mixin-card";
+
+@import "base/fonts";
+@import "base/global";
+@import "base/typography";
+@import "base/links";
+
+
+@import "components/demo.scss";
+ 
+@import"components/_components";
+
+
+
+
+
+
+$color: silver;
+body{
+    background-color: $color;
+}

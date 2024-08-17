@@ -5,11 +5,15 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin'); // Use this instead of OptimizeCSSAssetsPlugin
 
 module.exports = {
-    entry: './index.js',
+    entry:{
+        'app': './index.js',
+        'assets/js/banner': './src/assets/js/banner.js',
+    },
+
     output: {
         publicPath: '/',
         path: path.resolve(__dirname, 'app'),
-        filename: 'app.js',
+        filename: '[name].js',
     },
     module: {
         rules: [
@@ -26,12 +30,24 @@ module.exports = {
                     'sass-loader',
                 ],
             },
+
+            {
+                test: /\.m?js$/,
+                exclude: /node_modules/,
+                use: {
+                  loader: "babel-loader",
+                  options: {
+                    presets: ['@babel/preset-env']
+                  }
+                }
+              },
+
             {
                 test: /\.(svg|eot|woff|woff2|ttf)$/,
                 exclude: /images/,
                 use: [
                     {
-                        loader: "file-loader", 
+                        loader: "file-loader",
                         options: {
                             name: '[name].[ext]',
                             outputPath: "assets/fonts",
@@ -45,7 +61,33 @@ module.exports = {
         new HtmlWebpackPlugin({
             filename: 'index.html',
             template: './index.html',
+            chunks:['app']
         }),
+
+        new HtmlWebpackPlugin({
+            filename: "components/button.html",
+            template: "./src/components/button.html",
+            chunks:['app']
+        }),
+
+        new HtmlWebpackPlugin({
+            filename: "components/textfield.html",
+            template: "./src/components/textfield.html",
+            chunks:['app']
+        }),
+
+        new HtmlWebpackPlugin({
+            filename: "components/card.html",
+            template: "./src/components/card.html",
+            chunks:['app']
+        }),
+
+        new HtmlWebpackPlugin({
+            filename: "components/banner.html",
+            template: "./src/components/banner.html",
+            chunks:['app', 'assets/js/banner']
+        }),
+
         new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
         new MiniCssExtractPlugin({
             filename: 'assets/css/style.css',
