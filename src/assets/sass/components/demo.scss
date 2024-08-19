@@ -1,11 +1,12 @@
-.component-container{
+.component-container {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    flex-wrap:wrap;
-    width: 95vh;
+    flex-wrap: wrap;
+    width: 100%;
     height: 100vh;
     margin-left: auto;
     margin-right: auto;
-
+    padding-left: spacing("small");
+    padding-right: spacing("small");
 }
