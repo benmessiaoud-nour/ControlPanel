@@ -54,5 +54,24 @@ c.banner__action{
 }
 
 
+//responsive
 
+ @media(max-width:$bp-phone-normal){
+    .c-banner{
+        padding-left: spacing("small");
+        padding-right: spacing("small");
+    }
+    .c-banner__icon{
+        right: spacing("small");
+    }
+
+    .c-banner__close{
+        left: spacing("small");
+    }
+
+    .c-banner__title{
+        margin-left: spacing("normal");
+        margin-right: $icon-size + spacing("extra-small");
+    }
+ }
 

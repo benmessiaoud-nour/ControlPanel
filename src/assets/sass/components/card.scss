@@ -1,33 +1,44 @@
-.c-card{
+.c-card {
     @include e-card;
     display: flex;
     align-items: flex-start;
     flex-wrap: wrap;
-    padding: spacing("normal");
+    padding: spacing("normal")/2 spacing("normal");
     width: 100%;
 }
 
-.c-card__title{
+.c-card__title {
     flex-grow: 1;
     color: $color-text-subdued;
     font-size: 17px;
     font-weight: normal;
     margin-left: spacing();
+    margin-top: spacing("normal")/2;
+    margin-bottom: spacing("normal")/2;
 
 }
-.c-card__desc{
+
+.c-card__action {
+    margin-top: spacing("normal")/2;
+    margin-bottom: spacing("normal")/2;
+}
+
+.c-card__desc {
     align-items: center;
     font-size: 14px;
     outline: none;
 }
-.c-card__no-desc{
+
+.c-card__no-desc {
     align-items: center;
-    .c-card__title{
+
+    .c-card__title {
         margin-bottom: 0px;
     }
 }
-.c-card__no-action{
-.c-card__desc{
-    margin-top: 0px;
-}
+
+.c-card__no-action {
+    .c-card__desc {
+        margin-top: 0px;
+    }
 }
